@@ -11,7 +11,7 @@ function Tour({ tour, removeTour }) {
       <p id={`tour-item-para-${tour.id}`}> 
         {showMore ? tour.info : tour.info.substring(0, 200)}
         <button id={`see-more-${tour.id}`} onClick={() => setShowMore(!showMore)}>
-          {showMore ? 'See less' : 'Show more'}
+          {showMore ? 'See less' : 'See more'}
         </button>
       </p>
       <button  id={`delete-btn-${tour.id}`} onClick={() => removeTour(tour.id)}>Remove</button>
