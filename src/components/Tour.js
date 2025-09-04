@@ -1,32 +1,21 @@
-import React, { useState } from "react";
-
-const Tour = ({ id, name, info, image, price, onDelete }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const toggleDescription = () => {
-    setIsExpanded(!isExpanded);
-  };
+import React from "react";
+import { useState } from "react";
+function Tour({ tour, removeTour }) {
+  const [showMore, setShowMore] = useState(false);
 
   return (
-    <div>
-      <h2>{name}</h2>
-      <img src={image} alt={name} />
-      <div className="tour-info">
-        {isExpanded ? info : `${info.slice(0, 200)}...`}
-        <button onClick={toggleDescription}>
-          {isExpanded ? "See Less" : "Show More"}
+    <div className="tour">
+      <img src={tour.image} alt={tour.name} />
+      <h3>{tour.name}</h3>
+      <p>${tour.price}</p>
+      <p>
+        {showMore ? tour.info : tour.info.substring(0, 200)}
+        <button onClick={() => setShowMore(!showMore)}>
+          {showMore ? 'See less' : 'Show more'}
         </button>
-      </div>
-      <div className="tour-price">
-        <p>
-          <strong>Price: ${price}</strong>
-        </p>
-      </div>
-      <button className="delete-btn" onClick={() => onDelete(id)}>
-        Remove Tour
-      </button>
+      </p>
+      <button onClick={() => removeTour(tour.id)}>Remove</button>
     </div>
   );
-};
-
+}
 export default Tour;

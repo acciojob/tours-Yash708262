@@ -1,16 +1,12 @@
 import React from "react";
-import Tour from "./Tour"; // Import the Tour component
-
-const Tours = ({ tours, onDeleteTour }) => {
+import Tour from "./Tour"; 
+function Tours({ tours, removeTour }) {
   return (
     <div>
-      {tours.map((tour) => (
-        <div key={tour.id} className="single-tour">
-          <Tour {...tour} onDelete={onDeleteTour} />
-        </div>
+      {tours.map(tour => (
+        <Tour key={tour.id} tour={tour} removeTour={removeTour} />
       ))}
     </div>
   );
-};
-
+}
 export default Tours;
