@@ -68,7 +68,9 @@ const App = () => {
   }
 
   return (
+    <div id="main">  
     <Tours tours={tours} removeTour={removeTour} />
+  </div>
   )
 }
 

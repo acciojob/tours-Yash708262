@@ -8,13 +8,13 @@ function Tour({ tour, removeTour }) {
       <img src={tour.image} alt={tour.name} />
       <h3>{tour.name}</h3>
       <p>${tour.price}</p>
-      <p>
+      <p id={`tour-item-para-${tour.id}`}> 
         {showMore ? tour.info : tour.info.substring(0, 200)}
         <button onClick={() => setShowMore(!showMore)}>
           {showMore ? 'See less' : 'Show more'}
         </button>
       </p>
-      <button onClick={() => removeTour(tour.id)}>Remove</button>
+      <button  id={`delete-btn-${tour.id}`} onClick={() => removeTour(tour.id)}>Remove</button>
     </div>
   );
 }
